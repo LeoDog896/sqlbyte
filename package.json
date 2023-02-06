@@ -3,8 +3,9 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
+    "build:wasm": "wasm-pack build ./sqlparser-wasm --target web",
+		"dev": "yarn build:wasm && vite dev",
+		"build": "yarn build:wasm && vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -27,6 +28,7 @@
 		"tslib": "^2.4.1",
 		"typescript": "^4.9.3",
 		"vite": "^4.0.0",
+		"vite-plugin-wasm-pack": "^0.1.12",
 		"vitest": "^0.25.3"
 	},
 	"type": "module"
