@@ -1,6 +1,7 @@
 <script lang="ts">
     import { gluesql } from 'gluesql/gluesql.rollup';
     import { onMount } from 'svelte';
+	import SqlEditor from '../lib/SqlEditor.svelte';
 
     let db: any;
     let result: any;
@@ -34,7 +35,8 @@
 
 </script>
 
-<textarea cols=80 rows=20 bind:value={input}></textarea>
+<SqlEditor bind:value={input}></SqlEditor>
+
 <button on:click={() => {
     query(input);
 }}>Submit</button>
