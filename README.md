@@ -5,10 +5,11 @@ interactive SQL playground & lesson creator
 ## Example Query (testing)
 
 ```
-CREATE TABLE Glue (id INTEGER);
+CREATE TABLE Byte (id INTEGER, name TEXT);
 
-INSERT INTO Glue VALUES (100);
-INSERT INTO Glue VALUES (200);
+INSERT INTO Byte VALUES (100, "One Hundred");
+INSERT INTO Byte VALUES (200, "Two Hundred");
+INSERT INTO Byte VALUES (300, "Three Hundred");
 
-SELECT * FROM Glue WHERE id > 100;
+SELECT * FROM Byte WHERE id > 100;
 ```

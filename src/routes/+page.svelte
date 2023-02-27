@@ -20,6 +20,18 @@
         }
     }
 
+    // find the column headers of a table
+    // e.g. [{ id: 1, name: "foo" }, { id: 2, name: "bar", cat: true }] -> ["id", "name", "cat"]
+    function findColumnsHeaders(data: any[]) {
+        const headers = new Set<string>();
+        for (const row of data) {
+            for (const key in row) {
+                headers.add(key);
+            }
+        }
+        return Array.from(headers);
+    }
+
     function formatResult(type: string, data: any): string | any[] | { type: "error", data: any } {
         switch (type) {
             case "CREATE TABLE":
@@ -51,7 +63,20 @@
         {:else if typeof formatted == "object" && formatted.type == "error"}
             <p>Error: {JSON.stringify(formatted)}</p>
         {:else if Array.isArray(formatted)}
-            {JSON.stringify(formatted)}
+            <table>
+                <tr>
+                    {#each findColumnsHeaders(formatted) as header}
+                        <th>{header}</th>
+                    {/each}
+                </tr>
+                {#each formatted as row}
+                    <tr>
+                        {#each findColumnsHeaders(formatted) as header}
+                            <td>{row[header]}</td>
+                        {/each}
+                    </tr>
+                {/each}
+            </table>
         {:else}
             <p>Unexpected type, please report this:</p>
             {JSON.stringify(formatted)}
@@ -63,3 +88,20 @@
     <p>Unknown result:</p>
     <p>{JSON.stringify(result)}</p>
 {/if}
+
+<style>
+    /** style the table */
+
+    table {
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    th, td {
+        padding: 5px;
+    }
+    
+</style>
