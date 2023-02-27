@@ -1,2 +1,26 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+    import { gluesql } from 'gluesql/gluesql.rollup';
+    import { onMount } from 'svelte';
+
+    let db: any;
+    let result: any;
+
+    let input: string;
+
+    onMount(async () => {
+        db = await gluesql()
+    })
+
+    async function query(input: string) {
+        result = await db.query(input)
+    }
+
+</script>
+
+<input bind:value={input}>
+<button on:click={() => {
+    query(input);
+    input = '';
+}}>Submit</button>
+
+<p>{JSON.stringify(result)}</p>
