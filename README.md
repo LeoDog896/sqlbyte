@@ -2,6 +2,13 @@
 
 interactive SQL playground & lesson creator
 
+## Roadmap
+
+- Create various examples of SQL lessons
+- Allow custom lesson creation with a file upload (i preferrably do *not* want to host a server)
+- Generate fake data ([faker.js](https://fakerjs.dev/guide/usage.html)) && custom table sets 
+- Good UI
+
 ## Example Query (testing)
 
 ```
