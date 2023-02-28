@@ -2,12 +2,31 @@
 // uses json-schema-faker to fake data
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    // employees need a firstName, lastName, email, sex, and date hired
-    "type": "object",
-    "properties": {
-        "firstName": {
-            "type": "string",
-            "faker": "name.firstName"
-        }
+    "type": "array",
+    "minItems": 100,
+    "maxItems": 100,
+    "items": {
+        // employees need a firstName, lastName, email, sex, and date hired
+        "type": "object",
+        "properties": {
+            "firstName": {
+                "type": "string",
+                "faker": "name.firstName"
+            },
+            "lastName": {
+                "type": "string",
+                "faker": "name.lastName"
+            },
+            "email": {
+                "type": "string",
+                "format": "email",
+                "faker": "internet.email"
+            }
+        },
+        "required": [
+            "firstName",
+            "lastName",
+            "email"
+        ]
     }
 }

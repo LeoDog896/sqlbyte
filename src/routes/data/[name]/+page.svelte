@@ -6,4 +6,8 @@
 
 <h1>Data Explorer</h1>
 
-{JSON.stringify(fakeSchema(data.json))}
+{#if Array.isArray(data)}
+	<p></p>
+{:else}
+	<p>Weird, data isn't an array.</p>
+{/if}
