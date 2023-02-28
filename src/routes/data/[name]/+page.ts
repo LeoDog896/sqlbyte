@@ -1,6 +1,6 @@
 import { error } from "@sveltejs/kit";
 import type { PageLoad } from "./$types"
-import { jsonc } from "jsonc"
+import JSON5 from 'json5'
 
 export const load: PageLoad = async ({ params }) => {
 	const module = import.meta.glob(`../../../lib/data/*.jsonc`, { eager: true, as: "raw" })
@@ -13,7 +13,11 @@ export const load: PageLoad = async ({ params }) => {
         throw error(404, 'Not found')
     }
 
-	return {
-		json: jsonc.parse(filteredModule[1])
-	};
+    try {
+        return {
+            json: JSON5.parse(filteredModule[1])
+        };
+    } catch (e) {
+        throw error(500, 'Internal Server Error: ' + e)
+    }
 };
