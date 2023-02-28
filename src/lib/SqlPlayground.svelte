@@ -85,18 +85,6 @@
 </fieldset>
 
 <style>
-    table {
-        border-collapse: collapse;
-    }
-
-    table, th, td {
-        border: 1px solid black;
-    }
-
-    th, td {
-        padding: 5px;
-    }
-
     .container {
         border: 1px solid black;
         padding: 10px;

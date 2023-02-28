@@ -21,8 +21,8 @@
 		<tbody>
 			{#each fakedData as row}
 				<tr>
-					{#each Object.values(row) as cell}
-						<td>{cell}</td>
+					{#each findColumnsHeaders(fakedData) as header}
+						<td>{row[header] === undefined ? "null" : row[header]}</td>
 					{/each}
 				</tr>
 			{/each}
