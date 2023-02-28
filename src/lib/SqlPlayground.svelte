@@ -1,6 +1,7 @@
 <script lang="ts">
     import { gluesql } from 'gluesql/gluesql.rollup';
     import { onMount } from 'svelte';
+    import { findColumnsHeaders } from './tableUtils';
 	import SqlEditor from '../lib/SqlEditor.svelte';
 
     let db: any;
@@ -19,18 +20,6 @@
         } catch (e) {
             result = e;
         }
-    }
-
-    // find the column headers of a table
-    // e.g. [{ id: 1, name: "foo" }, { id: 2, name: "bar", cat: true }] -> ["id", "name", "cat"]
-    function findColumnsHeaders(data: any[]) {
-        const headers = new Set<string>();
-        for (const row of data) {
-            for (const key in row) {
-                headers.add(key);
-            }
-        }
-        return Array.from(headers);
     }
 
     function formatResult(type: string, data: any): string | any[] | { type: "error", data: any } {

@@ -12,7 +12,7 @@
     export let value = "";
 
     onMount(() => {
-        const view = new EditorView({
+        new EditorView({
             extensions: [
                 basicSetup,
                 sql(),
