@@ -20,8 +20,16 @@ FROM table_name;
 
 ## Try it out
 
-```json
+```json custom_table
 {
-    
+    "tables": [
+        {
+            "name": "employees",
+            "rows": 50,
+            "schema": {
+                "type": "object"
+            }
+        }
+    ]
 }
 ```
