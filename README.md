@@ -11,7 +11,7 @@ interactive SQL playground & lesson creator
 
 ## Example Query (testing)
 
-```
+```sql
 CREATE TABLE Byte (id INTEGER, name TEXT);
 
 INSERT INTO Byte VALUES (100, "One Hundred");

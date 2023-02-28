@@ -90,8 +90,6 @@
 {/if}
 
 <style>
-    /** style the table */
-
     table {
         border-collapse: collapse;
     }
