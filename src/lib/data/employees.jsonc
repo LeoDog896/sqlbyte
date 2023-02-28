@@ -6,7 +6,6 @@
     "minItems": 100,
     "maxItems": 100,
     "items": {
-        // employees need a firstName, lastName, email, sex, and date hired
         "type": "object",
         "properties": {
             "firstName": {
@@ -21,12 +20,23 @@
                 "type": "string",
                 "format": "email",
                 "faker": { "internet.email": ["#{firstName}", "#{lastName}"] }
+            },
+            "dateHired": {
+                "type": "string",
+                "format": "date",
+                "faker": "date.past"
+            },
+            "birthday": {
+                "type": "string",
+                "format": "date",
+                "faker": "date.birthday"
             }
         },
         "required": [
             "firstName",
             "lastName",
-            "email"
+            "email",
+            "dateHired"
         ]
     }
 }
