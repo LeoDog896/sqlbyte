@@ -20,7 +20,7 @@
             "email": {
                 "type": "string",
                 "format": "email",
-                "faker": "internet.email"
+                "faker": { "internet.email": ["#{firstName}", "#{lastName}"] }
             }
         },
         "required": [
