@@ -8,6 +8,11 @@
     "items": {
         "type": "object",
         "properties": {
+            "id": {
+                "type": "integer",
+                "minimum": 1,
+                "autoIncrement": true
+            },
             "firstName": {
                 "type": "string",
                 "faker": "name.firstName"
@@ -33,6 +38,7 @@
             }
         },
         "required": [
+            "id",
             "firstName",
             "lastName",
             "email",
