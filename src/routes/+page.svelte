@@ -6,6 +6,8 @@
 
 <h2>Create & use interactive SQL lessons in your browser</h2>
 
+<a href="/data">View all datasets</a>
+
 <h2>Lessons:</h2>
 <ul>
     
