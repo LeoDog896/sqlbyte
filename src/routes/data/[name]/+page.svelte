@@ -9,6 +9,8 @@
 
 <h1>Data Explorer</h1>
 
+<h2>{data.name}</h2>
+
 {#if Array.isArray(fakedData)}
 	<table>
 		<thead>

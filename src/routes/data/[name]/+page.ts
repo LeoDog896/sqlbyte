@@ -7,7 +7,8 @@ export const load: PageLoad = async ({ params }) => {
         const module = await import(`../../../lib/data/${params.name}.jsonc?raw`)
 
         return {
-            json: JSON5.parse(module.default)
+            json: JSON5.parse(module.default),
+            name: params.name
         };
     } catch (e) {
         throw error(500, 'Internal Server Error: ' + e)
