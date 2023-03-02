@@ -1,5 +1,4 @@
 // Employees is a table mimicking various different employees in a company.
-// uses json-schema-faker to fake data
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "type": "array",
@@ -13,20 +12,20 @@
                 "minimum": 1,
                 "autoIncrement": true
             },
-            "firstName": {
+            "first_name": {
                 "type": "string",
                 "faker": "name.firstName"
             },
-            "lastName": {
+            "last_name": {
                 "type": "string",
                 "faker": "name.lastName"
             },
             "email": {
                 "type": "string",
                 "format": "email",
-                "faker": { "internet.email": ["#{firstName}", "#{lastName}"] }
+                "faker": { "internet.email": ["#{first_name}", "#{last_name}"] }
             },
-            "dateHired": {
+            "date_hired": {
                 "type": "string",
                 "format": "date",
                 "faker": "date.past"
@@ -39,10 +38,10 @@
         },
         "required": [
             "id",
-            "firstName",
-            "lastName",
+            "first_name",
+            "last_name",
             "email",
-            "dateHired"
+            "date_hired"
         ]
     }
 }

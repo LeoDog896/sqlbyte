@@ -9,7 +9,9 @@
 
 <h1>Data Explorer</h1>
 
-<h2>{data.name}</h2>
+<h2>table: {data.name} ({Object.entries(fakedData).length} rows)</h2>
+
+<button on:click={() => fakedData = fakeSchema(data.json)}>Fake Data</button>
 
 {#if Array.isArray(fakedData)}
 	<table>

@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Quicksand:wght@700&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    font-family: 'Quicksand', cursive;
+}
+
 table {
     border-collapse: collapse;
     border: 1px solid #ddd;
@@ -11,4 +22,14 @@ th, td {
 
 tr:nth-child(even) {
     background-color: #f2f2f2
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
 }
