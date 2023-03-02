@@ -4,14 +4,17 @@
     import { findColumnsHeaders } from './tableUtils';
 	import SqlEditor from '../lib/SqlEditor.svelte';
 
-    let db: any;
+    export let ready: (db: any) => void = () => { };
+
+    let db: any = null;
     let result: any;
 
     export let title = "";
     export let input = "";
 
     onMount(async () => {
-        db = await gluesql()
+        db = await gluesql();
+        ready(db);
     })
 
     async function query(input: string) {

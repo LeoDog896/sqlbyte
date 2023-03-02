@@ -1,5 +1,7 @@
 <script lang="ts">
     import SqlPlayground from "$lib/SqlPlayground.svelte";
+    import { grabTablePairs, schemaQueryCreate } from "$lib/grabTable";
+    let query = "";
 </script>
 
 <h1>SQLByte</h1>
@@ -13,4 +15,12 @@
     
 </ul>
 
-<SqlPlayground title={"SQL Playground with all demo data preloaded in."}/>
+<SqlPlayground ready={async (db) => {
+    const pairs = await grabTablePairs();
+    for (const pair of pairs) {
+            query = await schemaQueryCreate(pair.name, pair.schema);
+        try {
+            await db.query(query)
+        } catch (e) { alert(e)}
+    }
+}} title={"SQL Playground with all demo data preloaded in."}/>
