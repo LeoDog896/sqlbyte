@@ -34,7 +34,7 @@ function schemaTypeToSQLType(type: string): SQLType {
     switch (type) {
         case "string":
             return "TEXT"
-        case "number":
+        case "integer":
             return "INTEGER"
         case "boolean":
             return "BOOLEAN"
